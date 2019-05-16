@@ -1,0 +1,33 @@
+.background {
+    min-height: 100vh;
+    max-height: auto;
+    background-image:  linear-gradient(
+        rgba(0, 0, 0, 0.829), 
+        rgba(0, 0, 0, 0.829)
+        ),url(../../assets/Images/got.jpg) !important; /* W3C */
+    background-attachment: fixed;
+}
+
+.card {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    background-color:  linear-gradient(
+        rgba(255, 255, 255, 1), 
+        rgb(255, 255, 255, 1)
+        ) !important; /* W3C */
+    opacity: .7;
+}
+
+.rating {
+    color: rgb(29, 10, 201);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}
+
+.image-container {
+    width: 30%
+}

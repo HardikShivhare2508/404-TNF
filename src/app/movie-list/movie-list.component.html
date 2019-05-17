@@ -1,0 +1,33 @@
+<div class="background">
+  <h1 class="heading">Search results</h1>
+  <div class="movie-list">
+    <div class="movie" *ngFor="let movie of moviesData">
+        <div class="card">
+            <div class="card-header">
+              <h2>{{movie.title}}</h2> 
+            </div>
+            <table>
+              <tr>
+              <td>
+                  <div class="card-body">
+                    <p class="card-title"><b>Gmdb rating:</b> {{movie.imdbRating}}</p>
+                    <p class="card-title"><b>Release year:</b> {{movie.year}}</p>
+                    <p class="card-text"><b>Actors:</b> {{movie.actors}}</p>
+                    <p class="card-text"><b>Genre:</b> {{movie.genre}}</p>
+                    <p class="card-text"><b>Language:</b> {{movie.language}}</p>
+                  </div>
+                  <div class="card-text details">
+                      <button class="btn btn-primary" (click)="redirectToPage(movie.movieId)">Details</button>
+                  </div>
+              </td>
+              <td>
+              <div>
+                <img class="card-img-top image" src="{{movie.poster}}" alt="Card image cap"/>
+              </div>
+              </td>
+            </table>
+          </div>
+    </div>
+  </div>
+</div>
+

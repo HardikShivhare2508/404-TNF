@@ -1,0 +1,12 @@
+.error {
+    color: #e74c3c
+}
+
+.container {
+    background:  linear-gradient(
+        rgba(0, 0, 0, 0.60), 
+        rgba(0, 0, 0, 0.60)
+    ),url(../../assets/Images/endgame.jpg) !important; /* W3C */
+    height: 100vh;
+    max-width: 100%;
+}

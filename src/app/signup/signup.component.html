@@ -1,0 +1,52 @@
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card border-secondary">
+                        <div class="card-header">
+                            <h3 class="mb-0 my-2" style="text-align:center">Sign Up</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" role="form" [formGroup]="registerForm" >
+                                <div class="form-group">
+                                    <label for="inputName">First name:<span class="error">*</span></label>
+                                    <input type="text" class="form-control" formControlName="firstName" placeholder="Enter your first name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName">Last name:<span class="error">*</span></label>
+                                    <input type="text" class="form-control" formControlName="lastName" placeholder="Enter your last lastname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3">Email:<span class="error">*</span></label>
+                                    <input type="email" class="form-control" formControlName="email" placeholder="Enter your email" required>
+                                    <label *ngIf="!validateEmail()" class="error">Please enter valid email</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3">Password<span class="error">*</span></label>
+                                    <input type="password" class="form-control" formControlName="password" placeholder="Enter your password">
+                                    <label *ngIf="!validatePassword()" class="error">Please check the password</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputVerify3">Re-enter Password<span class="error">*</span></label>
+                                    <input type="password" class="form-control" formControlName="validatePassword" placeholder="Re-enter your password" required>
+                                    <label *ngIf="!validatePassword()" class="error">Password has to match above one</label>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" (click)="postRegister" [disabled]="!registerForm.valid " class="btn btn-success btn-lg float-right">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+</div>
+<!--/container-->

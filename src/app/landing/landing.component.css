@@ -1,7 +1,13 @@
+
 .home{
     display : flex;
     flex-direction: column;
     align-items: center;
+    background:  linear-gradient(
+        rgba(0, 0, 0, 0.60), 
+        rgba(0, 0, 0, 0.60)
+      ),url(../../assets/Images/avengers.jpg) !important; /* W3C */
+    height: 100vh;
 }
 
 .search{
@@ -12,33 +18,42 @@
 }
 
 .heading{
-    margin-top: 0.5em;
+    margin-top: 3em;
     font-family: fantasy;
     font-size: 5em;
     font-weight: bold;
 }
 
 .logo{
-    width: 25em;
+    width: 20em;
+    border-radius: 5% 
 }
 
 .search{
-    width: 100%;
+    width: 60%;
     position: relative;
     display: flex;
-
 }
 
 .searchTerm {
-    width: 40%;
-    border: 3px solid #00B4CC;
+    width: 30%;
+    border: 2px solid #431E38;
     padding: 5px;
-    height: 20px;
-    border-radius: 5px;
+    height: 2em;
+    border-radius: 4.5px;
     outline: none;
-    color: #9DBFAF;
+    /* color: #9DBFAF; */
+    margin: 0.3em;
   }
 
-  .searchTerm:focus{
-    color: #00B4CC;
-  }
+select {
+    border: 2px solid #431E38;
+    height: 2em;
+}
+
+.btn {
+    background-color: #431E38;
+    border-color: #431E38; 
+}
+
+

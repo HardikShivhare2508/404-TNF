@@ -1,0 +1,54 @@
+<div class="background">
+  <div *ngIf="movieDetailsData" class="card">
+    <table>
+      <tr>
+        <td class="image-container">
+            <img class="card-img-top image" src="{{movieDetailsData.poster}}" alt="Card image cap"/>
+        </td>
+        <td>
+            <div class="card-body">
+                <h1 class="card-title">{{movieDetailsData.title}}</h1>
+                <p class="card-text"><b>GMDB rating: </b> <strong><span class="rating">{{movieDetailsData.imdbRating}}</span> </strong></p>  
+                <p class="card-text"><b>Rated: </b>{{movieDetailsData.rated}}</p>
+                <p class="card-text"><b>Genre: </b>{{movieDetailsData.genre}}</p>
+                <p class="card-text"><b>Run time: </b>{{movieDetailsData.runTime}}</p>
+                <p class="card-text"><b>Year: </b>{{movieDetailsData.year}}</p>
+                <p class="card-text"><b>Country of Origin: </b>{{movieDetailsData.country}}</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Actors: </b>{{movieDetailsData.actors}}</li>
+                <li class="list-group-item"><b>Director: </b>{{movieDetailsData.director}}</li>
+                <li class="list-group-item"><b>Plot: </b>{{movieDetailsData.plot}}</li>
+                <li class="list-group-item"><b>Language: </b>{{movieDetailsData.language}}</li>
+                <li class="list-group-item"><b>Production: </b>{{movieDetailsData.production}}</li>   
+                <li class="list-group-item"><b>Website: </b>{{movieDetailsData.website}}</li>
+                <li class="list-group-item">
+                  <ul class="list-group list-group-flush">
+                    <b>Reviews: </b> 
+                    <div *ngFor="let review of movieDetailsData.reviews">       
+                    <ngb-accordion #acc="ngbAccordion">
+                        <ngb-panel class="review-title">
+                        <ng-template ngbPanelHeader let-opened="opened">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <button ngbPanelToggle class="btn btn-link ">"{{review.reviewTitle}}" -- <b>Reviewer: </b> {{review.email}}</button>
+                            </div>
+                          </ng-template>
+                          <ng-template ngbPanelContent>
+                              {{review.reviewText}}
+                          </ng-template>
+                        </ngb-panel>
+                      </ngb-accordion>     
+                  </div>
+                  </ul>
+              </ul>
+              <div class="card-body">
+                <button href="#" class="btn btn-primary">Add Review</button>
+              </div>
+        </td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+
+ 

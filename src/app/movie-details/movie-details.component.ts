@@ -23,7 +23,8 @@ export class MovieDetailsComponent implements OnInit{
       if(moviesData != null) {
         moviesData.forEach((movieData) => {
           if(movieData.movieId === this.movieId) {
-            this.movieDetailsData = movieData;
+            console.log(movieData);
+            this.movieDetailsData = movieData; 
           }
         });
       }

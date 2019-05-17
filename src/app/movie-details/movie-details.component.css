@@ -6,12 +6,12 @@
         rgba(0, 0, 0, 0.829)
         ),url(../../assets/Images/got.jpg) !important; /* W3C */
     background-attachment: fixed;
+    padding: 3vw;
 }
 
 .card {
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 2%;
     background-color:  linear-gradient(
         rgba(255, 255, 255, 1), 
         rgb(255, 255, 255, 1)
@@ -29,5 +29,10 @@
 }
 
 .image-container {
+    vertical-align: initial;
     width: 30%
+}
+
+.btn-link  {
+    color: black;
 }

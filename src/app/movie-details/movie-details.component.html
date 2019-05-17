@@ -1,6 +1,4 @@
-
 <div class="background">
-  <app-navbar></app-navbar>
   <div *ngIf="movieDetailsData" class="card">
     <table>
       <tr>
@@ -24,16 +22,33 @@
                 <li class="list-group-item"><b>Language: </b>{{movieDetailsData.language}}</li>
                 <li class="list-group-item"><b>Production: </b>{{movieDetailsData.production}}</li>   
                 <li class="list-group-item"><b>Website: </b>{{movieDetailsData.website}}</li>
-                <li class="list-group-item"><b>Reviews: </b> <div *ngFor="let review of movieDetailsData.review">review</div></li>
+                <li class="list-group-item">
+                  <ul class="list-group list-group-flush">
+                    <b>Reviews: </b> 
+                    <div *ngFor="let review of movieDetailsData.reviews">       
+                    <ngb-accordion #acc="ngbAccordion">
+                        <ngb-panel class="review-title">
+                        <ng-template ngbPanelHeader let-opened="opened">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <button ngbPanelToggle class="btn btn-link ">"{{review.reviewTitle}}" -- <b>Reviewer: </b> {{review.email}}</button>
+                            </div>
+                          </ng-template>
+                          <ng-template ngbPanelContent>
+                              {{review.reviewText}}
+                          </ng-template>
+                        </ngb-panel>
+                      </ngb-accordion>     
+                  </div>
+                  </ul>
               </ul>
               <div class="card-body">
                 <button href="#" class="btn btn-primary">Add Review</button>
               </div>
-
         </td>
       </tr>
     </table>
-     
-     
     </div>
   </div>
+
+
+ 

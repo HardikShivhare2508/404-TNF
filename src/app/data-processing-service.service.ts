@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ISearch } from './interfaces/ISearch';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environments } from './constants/environments';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { IMovies } from './interfaces/IMovies';
 import { ILogin } from './interfaces/ILogin';
 import { IRegister } from './interfaces/IRegister';
 import { IReview } from './interfaces/IReview';
+import { IPassword } from './interfaces/IPassword';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ import { IReview } from './interfaces/IReview';
 export class DataProcessingServiceService {
   public moviesData: BehaviorSubject<Array<IMovies>> = new BehaviorSubject<Array<IMovies>>(null);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient , private toastr: ToastrService ) { }
 
   public getMoviesBasedOnSearch(searchCriteria: ISearch): void {
     this.http
@@ -93,17 +95,37 @@ export class DataProcessingServiceService {
 
     public postRegisterData(register : IRegister): void{
       console.log(register);
-      this.http.post<IRegister>(environments.baseURL + "/register",{
-        "firstName" : register.firstName,
-        "lastName"  : register.lastName,
-        "email" :register.email,
-        "password":register.password,
-        "validatePassword" : register.validatePassword
+      this.http.post(environments.baseURL + "/register",{
+        firstName : register.firstName,
+        lastName : register.lastName,
+        email :register.email,
+        password: register.password,
+        validatePassword: register.validatePassword
       }).subscribe((value)=>{
          console.log(value);
-        }, (error) =>{
+      }, (error) =>{
           console.log(error.error.message);
-           
-        });
+      });
+    }
+
+
+    public postForgotPasswordData(forgotPasswordData : IPassword): void{
+      this.http.post(environments.baseURL + "/forgotPassword",{
+        email: forgotPasswordData.email,
+        tempPassword: forgotPasswordData.tempPassword,
+        updatedPassword: forgotPasswordData.updatedPassword
+      },{responseType: 'text'}).subscribe(
+         (val) => {
+           if (val === "Password Updated") {
+             this.toastr.success(val , null , {
+              positionClass:'toast-top-full-width'
+            } )
+           } else {
+             this.toastr.error(val , null , {
+              positionClass:'toast-top-full-width'
+            } );
+           }
+         }
+        );
     }
 }

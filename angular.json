@@ -19,12 +19,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/gmdb.ico",
               "src/assets"
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [    
               "node_modules/popper.js/dist/popper.js",
@@ -95,6 +96,7 @@
             ],
             "assets": [
               "src/favicon.ico",
+              "src/gmdb.ico",
               "src/assets"
             ]
           }

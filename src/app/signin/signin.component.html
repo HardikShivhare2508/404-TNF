@@ -1,5 +1,4 @@
 
-<app-navbar></app-navbar>
 <div class="container py-5">
     <div class="row">
         <div class="col-md-12">
@@ -22,6 +21,7 @@
                                     <label *ngIf="!validatePassword()" class="error">Please check the password</label>
                                 </div>
                                 <button type="submit" [disabled]="!loginForm.valid" class="btn  btn-lg float-right" style="text-align:center"   (click)="postLogin()">Login</button>
+                                <a href="/forgotPassword">Forgot Password</a>
                             </form>
                         </div>
                     </div>
